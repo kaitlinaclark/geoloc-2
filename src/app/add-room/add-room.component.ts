@@ -14,7 +14,8 @@ import { Observable, of } from 'rxjs';
 })
 export class AddRoomComponent implements OnInit {
 @ViewChild('chatname', {static: false}) chatname;
-	rooms = Rooms;
+@ViewChild('error', {static: false}) error;
+	rooms: Room[] = Rooms;
   constructor(private messageService: MessageService) { }
 
    ngOnInit() {
@@ -34,11 +35,10 @@ export class AddRoomComponent implements OnInit {
 		
 			if(/\S/.test(roomname)){
 				var r=new Room (id, roomname )
-				this.messageService.add(`New Room created: ${this.input1.nativeElement.value}`);
 				Rooms.push(r);
 			}
 			else{
-			this.messageService.add(`Room not created due to invalid room name`);
+				this.error.nativeElement.textContent = 'Room not created due to invalid room name';
 			}
 		
 	}

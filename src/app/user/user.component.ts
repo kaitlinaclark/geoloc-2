@@ -7,10 +7,6 @@ import {User} from '../data/user';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  /*user: Users = {
-    id: 1,
-    name: "Windstorm"
-  };*/
   users: User[];
   //when a user is selected
   selectedUser: User;

@@ -21,6 +21,9 @@ export class RoomComponent implements OnInit {
     this.chatService.send(this.msg);
     
   }
+	onSelect(room: Room): void {
+		this.selectedRoom = room;
+	}
 
  
 }
