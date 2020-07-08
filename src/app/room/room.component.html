@@ -1,0 +1,20 @@
+<h2>Available Chats</h2>
+<ul class="rooms">
+  <li *ngFor="let room of rooms" 
+  [class.selected]="room === selectedRoom" 
+  (click)="onSelect(room)">
+    {{room.name | uppercase}}
+  </li>
+</ul>
+<!--display info about selected room-->
+<div *ngIf="selectedRoom">
+  <h2>{{selectedRoom.name | uppercase}} Details</h2>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedRoom.name" placeholder="name">
+    </label>
+  </div>
+</div>
+<script type="text/javascript-lazy">
+console.log("rooms");
+</script>

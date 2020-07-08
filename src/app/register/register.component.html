@@ -1,0 +1,17 @@
+<div class="justify-content-center align-items-center w-100 h-100">
+            <div class="card col-6 mx-auto my-auto" >
+                <article class="card-body">
+                    <h4 class="card-title text-center mb-4 mt-1">Please Enter Username</h4>
+                    <hr>
+			<p #error class="text-center text-danger"></p>
+                    <form >
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input #username class="form-control" placeholder="Username" type="text" required>
+                            </div>
+                        </div>
+                        <button #submit class="btn btn-primary btn-block" (click)="add()"> Register </button>
+                    </form>
+                </article>
+            </div>
+        </div>

@@ -1,0 +1,21 @@
+<h2>Users in Chat</h2>
+<ul class="users">
+  <li *ngFor="let user of users" 
+  [class.selected]="user === selectedUser" 
+  (click)="onSelect(user)">
+    {{user.username | lowercase}}
+  </li>
+</ul>
+
+<!--selected user info-->
+<div *ngIf="selectedUser">
+  <h2>{{selectedUser.username | uppercase}} Details</h2>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedUser.username" placeholder="name">
+    </label>
+  </div>
+</div>
+<script type="text/javascript-lazy">
+  console.log("users");
+  </script>

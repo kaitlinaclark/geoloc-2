@@ -1,0 +1,8 @@
+<div class="rooms row justify-content-center">
+  <a *ngFor="let room of rooms" class="card col-4"
+      routerLink="/detail/{{room.id}}">
+    <div class="text-center text-info card-title">
+      <h4>{{room.name}}</h4>
+    </div>
+  </a>
+</div>

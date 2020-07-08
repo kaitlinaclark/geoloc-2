@@ -1,0 +1,16 @@
+<div class="justify-content-center align-items-center w-100 h-100">
+            <div class="card col-6 mx-auto my-auto" >
+                <article class="card-body">
+                    <h4 class="card-title text-center mb-4 mt-1">Please Enter Chatname</h4>
+                    <hr>
+                    <form >
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input #chatname class="form-control" placeholder="Chat Name" type="text" required>
+                            </div> 
+                        </div>
+                        <button #submit class="btn btn-primary btn-block" (click)="add()"> Create Chat </button>
+                    </form>
+                </article>
+            </div>
+        </div>
