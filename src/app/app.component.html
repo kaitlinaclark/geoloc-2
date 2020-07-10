@@ -12,16 +12,19 @@
 	</header>
 	<app-login (loginCompleted)="onLogin($event)" *ngIf="log"></app-login>
 	</div>
-	
+	<div *ngIf="loggedin">	
 	<header *ngIf="loggedin" class="row">
                 <nav class="navbar navbar-expand navbar-light bg-light col-12">
                         <div class="collapse navbar-collapse justify-content-center">
                                 <ul class="navbar-nav">
                                         <li><a class="nav-link" routerLink="/rooms">Rooms</a></li>
                                         <li><a class="nav-link" routerLink="/add-room">Add Room</a></li>
+					<li><a (click)="showLogout()" class="nav-link" routerLink="/logout">Logout</a></li>
                                 </ul>
                         </div>
                 </nav>
         </header>
+	<app-logout (logoutCompleted)="onLogout($event)" *ngIf="out"></app-logout>
+	</div>
 <router-outlet></router-outlet>
 </div>

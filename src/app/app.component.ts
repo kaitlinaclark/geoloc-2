@@ -21,7 +21,8 @@ export class AppComponent implements OnInit{
 	loggedin: boolean = false;
 
 	log: boolean = true;
-
+	out: boolean = false;
+	
 	constructor(private socketService: SocketIOService,
 			private chat: ChatService) { }
 
@@ -36,17 +37,19 @@ export class AppComponent implements OnInit{
 			this.loggedout = false;
 		}
 	}
-	show(){ // show login form
-		this.log = true;
-	}
-	hide(){ // hide login form
-		this.log = false;
-	}
+	showLogout(){ this.out = true; } // logout user
+	show(){ this.log = true; } // show login form
+	hide(){ this.log = false; } // hide login form
 	
 	onLogin(login: boolean){
 		console.log("caught login");
 		this.loggedin = true;
 		this.loggedout = false;
+	}
+	onLogout(o: boolean){
+		console.log("caught logout");
+		this.loggedin = false;
+		this.loggedout = true;
 	}
 
 	send() {
