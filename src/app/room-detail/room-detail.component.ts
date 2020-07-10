@@ -8,6 +8,8 @@ import { RoomService } from '../service/room.service';
  
 import { Room } from '../data/room';
 
+import { CurrentUser } from '../data/current-user';
+
 @Component({
   selector: 'app-room-detail',
   templateUrl: './room-detail.component.html',
@@ -32,12 +34,13 @@ export class RoomDetailComponent implements OnInit {
 	this.socketService.socket.on('message', ( data ) => { this.chat.nativeElement.append("\n" + data.text) })
   }
 	getRoom() {
-		const id = this.route.snapshot.paramMap.get('id');
+		const id: number = Number(this.route.snapshot.paramMap.get('id'));
 		this.roomService.getRoom(id)
 			.subscribe(room => this.room = room);
 	}	
 	send(txt){
 		this.chatService.send(txt);
+		this.chat.nativeElement.append(document.createTextNode(CurrentUser.name + ": " + txt));
 		this.chat.nativeElement.append(document.createElement("br"));
 	}
 	goBack(){

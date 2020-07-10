@@ -26,5 +26,6 @@
         </header>
 	<app-logout (logoutCompleted)="onLogout($event)" *ngIf="out"></app-logout>
 	</div>
-<router-outlet></router-outlet>
+	<div #mapElement class="row" id="map"></div>
+	<router-outlet></router-outlet>
 </div>

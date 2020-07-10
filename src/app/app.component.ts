@@ -1,4 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+
+import {} from 'googlemaps';
+
 import { SocketIOService } from './service/socketio.service';
 import { ChatService } from './service/chat.service';
 import { UserService } from './service/user.service';
@@ -14,6 +17,8 @@ import { CurrentUser } from './data/current-user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+	@ViewChild('mapElement', { static: false }) mapElement: ElementRef;
+	map: google.maps.Map;
 
 	title = 'geoloc';
 	users = Users;
@@ -36,6 +41,13 @@ export class AppComponent implements OnInit{
 			this.loggedin = true;
 			this.loggedout = false;
 		}
+		this.mapElement.nativeElement.style = "height: 0px;";
+		
+	}
+	mapInit(){
+		const mapProps: google.maps.MapOptions = {                                                                                      center: new google.maps.LatLng(35.2271, -80.8431),
+                        zoom: 11,                                                                                                       };
+                this.map = new google.maps.Map(this.mapElement.nativeElement, mapProps);
 	}
 	showLogout(){ this.out = true; } // logout user
 	show(){ this.log = true; } // show login form
@@ -45,6 +57,15 @@ export class AppComponent implements OnInit{
 		console.log("caught login");
 		this.loggedin = true;
 		this.loggedout = false;
+		
+		this.mapElement.nativeElement.style = "height: 500px; width:100%;";		
+
+		this.mapInit();
+                var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(35, -80),
+                        map: this.map,
+                });
+                marker.setMap(this.map);
 	}
 	onLogout(o: boolean){
 		console.log("caught logout");

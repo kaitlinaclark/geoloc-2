@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { GMapComponent } from './g-map/g-map.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    RoomDetailComponent
+    RoomDetailComponent,
+    GMapComponent
   ],
   imports: [
     BrowserModule,

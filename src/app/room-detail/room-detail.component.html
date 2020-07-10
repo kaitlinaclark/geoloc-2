@@ -1,15 +1,27 @@
-<div *ngIf="room">
-
-  <h2>{{room.name}}</h2>
-  
-  <div>
-		<p>Send a Message:</p>
-	 <input #txt type="text" name="" value="">
-    <button (click)="send(txt.value)">Send</button>
-    <br>
-    <p #chat>{{msg}}  </p>
-  </div>
-	
-		<button (click)="goBack()">go back</button>
-
+<div class="row justify-content-center align-items center w-100 h-100">
+	<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 mx-auto my-auto" *ngIf="room" >
+            <div class="row justify-content-center"><h1>{{room.name}}</h1></div>
+            <!--In a Chat: chat log-->
+            <div class="row pb-5" #chat> 
+                <div class="card w-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Henry: </h5> What's up yall?
+                    </div>
+                </div>
+            
+            </div>
+        
+       
+            <!--MESSAGE DISPLAY-->
+            <div class="row position-absolute fixed-bottom pt-3">
+                
+                <div class="input-group" >
+                    <input #txt type="text" class="form-control" placeholder="Enter message here" autocomplete="off" />
+                    <span class="input-group-btn">
+			<button class="btn btn-primary" (click)="send(txt.value)">Send</button>
+			<button class="btn btn-info" (click)="goBack()">Back</button>	
+		    </span>
+                </div>
+            </div>
+        </div>
 </div>
