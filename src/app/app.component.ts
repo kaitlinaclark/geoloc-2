@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { SocketIOService } from './service/socketio.service';
 import { ChatService } from './service/chat.service';
 import { UserService } from './service/user.service';
@@ -6,15 +6,22 @@ import { UserService } from './service/user.service';
 import { User } from './data/user';
 import { Users } from './data/mock-users';
 
+import { CurrentUser } from './data/current-user';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'geoloc';
+
+	title = 'geoloc';
 	users = Users;
-	check: number;
+	loggedout: boolean = true;
+	loggedin: boolean = false;
+
+	log: boolean = true;
+
 	constructor(private socketService: SocketIOService,
 			private chat: ChatService) { }
 
@@ -24,22 +31,22 @@ export class AppComponent implements OnInit{
 			console.log('connected to server');
 		});
 	
-
-	this.check = 0
-
-	for(var i = 0; i < this.users.length; i++){
-		if(this.users[i].cur == 1){
-			this.check = 1;
+		if(CurrentUser !== null){
+			this.loggedin = true;
+			this.loggedout = false;
 		}
 	}
-
-	/*if(this.check == 1){ //one of the users is signed in
-		document.getElementById('nav1').style.visibility = 'hidden';
-		document.getElementById('nav2').style.visibility = 'visible';
-	}else{
-		document.getElementById('nav1').style.visibility = 'visible';
-                document.getElementById('nav2').style.visibility = 'hidden';
-	}*/
+	show(){ // show login form
+		this.log = true;
+	}
+	hide(){ // hide login form
+		this.log = false;
+	}
+	
+	onLogin(login: boolean){
+		console.log("caught login");
+		this.loggedin = true;
+		this.loggedout = false;
 	}
 
 	send() {

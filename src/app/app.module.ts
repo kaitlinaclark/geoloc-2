@@ -13,6 +13,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import {SocketIOService} from './service/socketio.service';
 import { ChatService } from './service/chat.service';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './register/register.component';
     UserComponent,
     RoomComponent,
     RoomsComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,27 @@
 <div class="container-fluid">
+	<div *ngIf="loggedout">
 	<header class="row">
 		<nav class="navbar navbar-expand navbar-light bg-light col-12">
 			<div class="collapse navbar-collapse justify-content-center">
 				<ul class="navbar-nav">
-					<li><a class="nav-link" routerLink="/register">Sign Up</a></li>
-					<li><a class="nav-link" routerLink="/rooms">Rooms</a></li>
-					<li><a class="nav-link" routerLink="/add-room">Add Room</a></li>
+					<li><a (click)="show()" class="nav-link" routerLink="/">Home</a></li>
+					<li><a (click)="hide()" class="nav-link" routerLink="/register">Sign Up</a></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
+	<app-login (loginCompleted)="onLogin($event)" *ngIf="log"></app-login>
+	</div>
+	
+	<header *ngIf="loggedin" class="row">
+                <nav class="navbar navbar-expand navbar-light bg-light col-12">
+                        <div class="collapse navbar-collapse justify-content-center">
+                                <ul class="navbar-nav">
+                                        <li><a class="nav-link" routerLink="/rooms">Rooms</a></li>
+                                        <li><a class="nav-link" routerLink="/add-room">Add Room</a></li>
+                                </ul>
+                        </div>
+                </nav>
+        </header>
 <router-outlet></router-outlet>
 </div>

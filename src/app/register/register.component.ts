@@ -19,6 +19,8 @@ import { Observable, of } from 'rxjs';
 export class RegisterComponent implements OnInit {
 	@ViewChild('username', { static: false }) username;
 	@ViewChild('error', { static: false }) error;
+	@ViewChild('success', { static: false }) success;
+
 	 users: User[] = Users;
   constructor(private messageService: MessageService) { }
 
@@ -41,7 +43,8 @@ export class RegisterComponent implements OnInit {
 			for(var i = 0; i < this.users.length; i++){ if(this.users[i].name === username){unique = false;}}
 			if(unique){
 				var u = new User(id, username);
-				this.messageService.add('New User added: ${this.username.nativeElement.value}');
+				this.success.nativeElement.textContent = `New User added: ${this.username.nativeElement.value}`;
+				this.username.nativeElement.value = '';
 			
 				Users.push(u);
 			}else{

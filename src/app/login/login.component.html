@@ -3,15 +3,15 @@
                 <article class="card-body">
                     <h4 class="card-title text-center mb-4 mt-1">Please Enter Username</h4>
                     <hr>
-			<p #success class="text-center text-success"></p>
 			<p #error class="text-center text-danger"></p>
+			<p #success class="text-center text-success"></p>
                     <form >
                         <div class="form-group">
                             <div class="input-group">
                                 <input #username class="form-control" placeholder="Username" type="text" required>
                             </div>
                         </div>
-                        <button #submit class="btn btn-primary btn-block" (click)="add()"> Register </button>
+                        <button #submit class="btn btn-primary btn-block" (click)="login()"> Login </button>
                     </form>
                 </article>
             </div>
