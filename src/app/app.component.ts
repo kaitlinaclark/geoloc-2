@@ -27,7 +27,7 @@ export class AppComponent implements OnInit{
 			private chat: ChatService) { }
 
 	ngOnInit() {
-		this.socketService.connect();
+		console.log("initial socket: ", this.socketService.socket);
 		this.socketService.socket.on('connect', () => {
 			console.log('connected to server');
 		});

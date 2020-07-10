@@ -9,12 +9,8 @@ import { environment } from '../../environments/environment';
 export class SocketIOService {
 
   // Our socket connection
-  socket;
+  socket = io(environment.SOCKET_ENDPOINT);
 
   constructor() { }
-
-  connect() {
-    this.socket = io(environment.SOCKET_ENDPOINT);
-	}
 
 }

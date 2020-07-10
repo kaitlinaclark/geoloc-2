@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+
 import { Users } from '../data/mock-users';
 import { User } from '../data/user';
 import { UserService } from '../service/user.service';

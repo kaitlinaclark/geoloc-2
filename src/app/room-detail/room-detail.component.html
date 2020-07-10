@@ -1,0 +1,15 @@
+<div *ngIf="room">
+
+  <h2>{{room.name}}</h2>
+  
+  <div>
+		<p>Send a Message:</p>
+	 <input #txt type="text" name="" value="">
+    <button (click)="send(txt.value)">Send</button>
+    <br>
+    <p #chat>{{msg}}  </p>
+  </div>
+	
+		<button (click)="goBack()">go back</button>
+
+</div>
